@@ -44,6 +44,9 @@
             this.txtProfileName = new System.Windows.Forms.TextBox();
             this.txtAccessKey = new System.Windows.Forms.TextBox();
             this.txtRegion = new System.Windows.Forms.TextBox();
+            this.lstProfileList = new System.Windows.Forms.ComboBox();
+            this.lblProfileList = new System.Windows.Forms.Label();
+            this.btnAddProfile = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -55,7 +58,7 @@
             this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer1.Location = new System.Drawing.Point(0, 81);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 121);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -69,8 +72,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.btnLaunchRsc);
             this.splitContainer1.Panel2.Controls.Add(this.txtPrivateIpAddress);
             this.splitContainer1.Panel2.Controls.Add(this.txtPassword);
-            this.splitContainer1.Size = new System.Drawing.Size(447, 152);
-            this.splitContainer1.SplitterDistance = 218;
+            this.splitContainer1.Size = new System.Drawing.Size(477, 203);
+            this.splitContainer1.SplitterDistance = 232;
             this.splitContainer1.TabIndex = 0;
             // 
             // lstEc2Instances
@@ -80,7 +83,7 @@
             this.lstEc2Instances.ItemHeight = 12;
             this.lstEc2Instances.Location = new System.Drawing.Point(0, 0);
             this.lstEc2Instances.Name = "lstEc2Instances";
-            this.lstEc2Instances.Size = new System.Drawing.Size(218, 152);
+            this.lstEc2Instances.Size = new System.Drawing.Size(232, 203);
             this.lstEc2Instances.TabIndex = 0;
             this.lstEc2Instances.SelectedIndexChanged += new System.EventHandler(this.lstEc2Instances_SelectedIndexChanged);
             // 
@@ -105,7 +108,7 @@
             // btnLaunchRsc
             // 
             this.btnLaunchRsc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLaunchRsc.Location = new System.Drawing.Point(141, 59);
+            this.btnLaunchRsc.Location = new System.Drawing.Point(157, 59);
             this.btnLaunchRsc.Name = "btnLaunchRsc";
             this.btnLaunchRsc.Size = new System.Drawing.Size(75, 23);
             this.btnLaunchRsc.TabIndex = 1;
@@ -120,7 +123,7 @@
             this.txtPrivateIpAddress.Location = new System.Drawing.Point(69, 9);
             this.txtPrivateIpAddress.Name = "txtPrivateIpAddress";
             this.txtPrivateIpAddress.ReadOnly = true;
-            this.txtPrivateIpAddress.Size = new System.Drawing.Size(147, 19);
+            this.txtPrivateIpAddress.Size = new System.Drawing.Size(163, 19);
             this.txtPrivateIpAddress.TabIndex = 0;
             // 
             // txtPassword
@@ -130,18 +133,18 @@
             this.txtPassword.Location = new System.Drawing.Point(69, 34);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.ReadOnly = true;
-            this.txtPassword.Size = new System.Drawing.Size(147, 19);
+            this.txtPassword.Size = new System.Drawing.Size(163, 19);
             this.txtPassword.TabIndex = 0;
             // 
             // txtHowto
             // 
             this.txtHowto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtHowto.Location = new System.Drawing.Point(0, 260);
+            this.txtHowto.Location = new System.Drawing.Point(0, 351);
             this.txtHowto.Multiline = true;
             this.txtHowto.Name = "txtHowto";
             this.txtHowto.ReadOnly = true;
-            this.txtHowto.Size = new System.Drawing.Size(447, 32);
+            this.txtHowto.Size = new System.Drawing.Size(477, 32);
             this.txtHowto.TabIndex = 1;
             this.txtHowto.Text = "Set-AWSCredentials –AccessKey {accessKey} –SecretKey {secretKey}\r\nSet-DefaultAWSR" +
     "egion -Region ap-northeast-1";
@@ -150,7 +153,7 @@
             // 
             this.lblHowto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblHowto.AutoSize = true;
-            this.lblHowto.Location = new System.Drawing.Point(0, 245);
+            this.lblHowto.Location = new System.Drawing.Point(0, 336);
             this.lblHowto.Name = "lblHowto";
             this.lblHowto.Size = new System.Drawing.Size(197, 12);
             this.lblHowto.TabIndex = 2;
@@ -160,7 +163,7 @@
             // 
             this.lnkHowto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lnkHowto.AutoSize = true;
-            this.lnkHowto.Location = new System.Drawing.Point(0, 293);
+            this.lnkHowto.Location = new System.Drawing.Point(0, 384);
             this.lnkHowto.Name = "lnkHowto";
             this.lnkHowto.Size = new System.Drawing.Size(191, 12);
             this.lnkHowto.TabIndex = 3;
@@ -171,7 +174,7 @@
             // lblProfileName
             // 
             this.lblProfileName.AutoSize = true;
-            this.lblProfileName.Location = new System.Drawing.Point(0, 9);
+            this.lblProfileName.Location = new System.Drawing.Point(0, 58);
             this.lblProfileName.Name = "lblProfileName";
             this.lblProfileName.Size = new System.Drawing.Size(67, 12);
             this.lblProfileName.TabIndex = 2;
@@ -180,7 +183,7 @@
             // lblAccessKey
             // 
             this.lblAccessKey.AutoSize = true;
-            this.lblAccessKey.Location = new System.Drawing.Point(0, 51);
+            this.lblAccessKey.Location = new System.Drawing.Point(0, 100);
             this.lblAccessKey.Name = "lblAccessKey";
             this.lblAccessKey.Size = new System.Drawing.Size(62, 12);
             this.lblAccessKey.TabIndex = 2;
@@ -189,7 +192,7 @@
             // lblRegion
             // 
             this.lblRegion.AutoSize = true;
-            this.lblRegion.Location = new System.Drawing.Point(0, 30);
+            this.lblRegion.Location = new System.Drawing.Point(0, 79);
             this.lblRegion.Name = "lblRegion";
             this.lblRegion.Size = new System.Drawing.Size(40, 12);
             this.lblRegion.TabIndex = 2;
@@ -197,49 +200,81 @@
             // 
             // txtProfileName
             // 
-            this.txtProfileName.Location = new System.Drawing.Point(73, 6);
+            this.txtProfileName.Location = new System.Drawing.Point(73, 55);
             this.txtProfileName.Name = "txtProfileName";
             this.txtProfileName.ReadOnly = true;
-            this.txtProfileName.Size = new System.Drawing.Size(118, 19);
+            this.txtProfileName.Size = new System.Drawing.Size(168, 19);
             this.txtProfileName.TabIndex = 0;
             // 
             // txtAccessKey
             // 
             this.txtAccessKey.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtAccessKey.Location = new System.Drawing.Point(72, 48);
+            this.txtAccessKey.Location = new System.Drawing.Point(73, 97);
             this.txtAccessKey.Name = "txtAccessKey";
             this.txtAccessKey.ReadOnly = true;
-            this.txtAccessKey.Size = new System.Drawing.Size(369, 19);
+            this.txtAccessKey.Size = new System.Drawing.Size(399, 19);
             this.txtAccessKey.TabIndex = 0;
             // 
             // txtRegion
             // 
             this.txtRegion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtRegion.Location = new System.Drawing.Point(73, 27);
+            this.txtRegion.Location = new System.Drawing.Point(73, 76);
             this.txtRegion.Name = "txtRegion";
             this.txtRegion.ReadOnly = true;
-            this.txtRegion.Size = new System.Drawing.Size(368, 19);
+            this.txtRegion.Size = new System.Drawing.Size(398, 19);
             this.txtRegion.TabIndex = 0;
+            // 
+            // lstProfileList
+            // 
+            this.lstProfileList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.lstProfileList.FormattingEnabled = true;
+            this.lstProfileList.Location = new System.Drawing.Point(73, 12);
+            this.lstProfileList.Name = "lstProfileList";
+            this.lstProfileList.Size = new System.Drawing.Size(168, 20);
+            this.lstProfileList.TabIndex = 4;
+            this.lstProfileList.SelectedIndexChanged += new System.EventHandler(this.lstProfileList_SelectedIndexChanged);
+            // 
+            // lblProfileList
+            // 
+            this.lblProfileList.AutoSize = true;
+            this.lblProfileList.Location = new System.Drawing.Point(0, 15);
+            this.lblProfileList.Name = "lblProfileList";
+            this.lblProfileList.Size = new System.Drawing.Size(53, 12);
+            this.lblProfileList.TabIndex = 2;
+            this.lblProfileList.Text = "ProlieList";
+            // 
+            // btnAddProfile
+            // 
+            this.btnAddProfile.Location = new System.Drawing.Point(247, 10);
+            this.btnAddProfile.Name = "btnAddProfile";
+            this.btnAddProfile.Size = new System.Drawing.Size(75, 23);
+            this.btnAddProfile.TabIndex = 5;
+            this.btnAddProfile.Text = "AddProfile";
+            this.btnAddProfile.UseVisualStyleBackColor = true;
+            this.btnAddProfile.Click += new System.EventHandler(this.btnAddProfile_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(447, 306);
+            this.ClientSize = new System.Drawing.Size(477, 397);
+            this.Controls.Add(this.btnAddProfile);
+            this.Controls.Add(this.lstProfileList);
             this.Controls.Add(this.lblRegion);
             this.Controls.Add(this.lblAccessKey);
             this.Controls.Add(this.lnkHowto);
             this.Controls.Add(this.txtRegion);
             this.Controls.Add(this.txtAccessKey);
             this.Controls.Add(this.txtProfileName);
+            this.Controls.Add(this.lblProfileList);
             this.Controls.Add(this.lblProfileName);
             this.Controls.Add(this.lblHowto);
             this.Controls.Add(this.txtHowto);
             this.Controls.Add(this.splitContainer1);
             this.Name = "Form1";
-            this.Text = "RemoteDesktopManager";
+            this.Text = " ";
             this.Shown += new System.EventHandler(this.Form1_Shown);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -269,6 +304,9 @@
         private System.Windows.Forms.TextBox txtProfileName;
         private System.Windows.Forms.TextBox txtAccessKey;
         private System.Windows.Forms.TextBox txtRegion;
+        private System.Windows.Forms.ComboBox lstProfileList;
+        private System.Windows.Forms.Label lblProfileList;
+        private System.Windows.Forms.Button btnAddProfile;
     }
 }
 

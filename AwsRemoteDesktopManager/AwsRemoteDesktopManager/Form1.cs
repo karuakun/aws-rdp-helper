@@ -24,9 +24,31 @@ namespace AwsRemoteDesktopManager
             InitializeComponent();
         }
 
-        private async void Form1_Shown(object sender, EventArgs e)
+        private void Form1_Shown(object sender, EventArgs e)
         {
-            SetCurrentProfile("Default");
+            SetProfileList();
+        }
+
+        private async void btnAddProfile_Click(object sender, EventArgs e)
+        {
+            using (var w = new Form2())
+            {
+                if (DialogResult.OK != w.ShowDialog(this))
+                {
+                    return;
+                }
+                SetProfileList();
+            }
+        }
+        
+        private async void lstProfileList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var data = lstProfileList.SelectedItem as CredentialProfile;
+            if (null == data)
+            {
+                return;
+            }
+            SetCurrentProfile(data.Name);
             await ShowEc2Instances();
         }
 
@@ -39,6 +61,13 @@ namespace AwsRemoteDesktopManager
         {
             var privateIpAddress = txtPrivateIpAddress.Text;
             Process.Start("mstsc.exe", $"/v:{privateIpAddress}");
+        }
+
+        private void SetProfileList()
+        {
+            var profileList = GetAwsProfiles();
+            lstProfileList.DisplayMember = "Name";
+            lstProfileList.DataSource = profileList;
         }
 
         private void SetCurrentProfile(string profileName)
@@ -62,12 +91,22 @@ namespace AwsRemoteDesktopManager
                 ?.SelectMany(r => r.Instances);
         }
 
+        private class InstanceListViewModel
+        {
+            public Instance Instance { get; set; }
+            public string Display { get; set; }
+
+            public static InstanceListViewModel ConvertFromInstance(Instance instance)
+            {
+                return new InstanceListViewModel { Instance = instance, Display = $"{instance.Tags.FirstOrDefault(t => t.Key == "Name")?.Value}" };
+            }
+        }
         private async Task ShowEc2Instances()
         {
             var instances = (await GetEc2Instances())
                 ?.Where(i => PlatformValues.Windows == i.Platform)
-                ?.Select(i => new { Instance = i, Display = $"{i.Tags.FirstOrDefault(t => t.Key == "Name")?.Value}" })
-                ?.ToList();
+                .Select(i => InstanceListViewModel.ConvertFromInstance(i))
+                .ToList();
             if (null == instances)
             {
                 return;
@@ -88,25 +127,12 @@ namespace AwsRemoteDesktopManager
             txtPrivateIpAddress.Text = instance.PrivateIpAddress;
         }
 
-        //public CredentialProfile RegisterAwsProfile(string profileName, string accessKey, string secretKey)
-        //{
-        //    var profile = new CredentialProfile(profileName, new CredentialProfileOptions
-        //    {
-        //        AccessKey = accessKey,
-        //        SecretKey = secretKey,
-        //    });
-        //    profile.Region = RegionEndpoint.GetBySystemName(RegionName);
-
-        //    var credentialFile = new NetSDKCredentialsFile();
-        //    credentialFile.RegisterProfile(profile);
-
-        //    return profile;
-        //}
-        //public List<CredentialProfile> GetAwsProfiles()
-        //{
-        //    var credentialFile = new NetSDKCredentialsFile();
-        //    return credentialFile.ListProfiles();
-        //}
+        
+        public List<CredentialProfile> GetAwsProfiles()
+        {
+            var credentialFile = new NetSDKCredentialsFile();
+            return credentialFile.ListProfiles();
+        }
 
         public CredentialProfile GetAwsProfile(string profileName)
         {
@@ -139,7 +165,6 @@ namespace AwsRemoteDesktopManager
         {
             Process.Start("https://aws.amazon.com/jp/powershell/");
         }
-
 
     }
 }
