@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Data;
 using System.Linq;
 using System.IO;
 using System.Windows.Forms;
 using System.Reflection;
 using System.Diagnostics;
-
-using Amazon;
 using Amazon.EC2;
 using Amazon.EC2.Model;
 using Amazon.Runtime.CredentialManagement;
@@ -29,7 +26,7 @@ namespace AwsRemoteDesktopManager
             SetProfileList();
         }
 
-        private async void btnAddProfile_Click(object sender, EventArgs e)
+        private void btnAddProfile_Click(object sender, EventArgs e)
         {
             using (var w = new Form2())
             {
@@ -93,8 +90,8 @@ namespace AwsRemoteDesktopManager
 
         private class InstanceListViewModel
         {
-            public Instance Instance { get; set; }
-            public string Display { get; set; }
+            private Instance Instance { get; set; }
+            private string Display { get; set; }
 
             public static InstanceListViewModel ConvertFromInstance(Instance instance)
             {
@@ -105,7 +102,7 @@ namespace AwsRemoteDesktopManager
         {
             var instances = (await GetEc2Instances())
                 ?.Where(i => PlatformValues.Windows == i.Platform)
-                .Select(i => InstanceListViewModel.ConvertFromInstance(i))
+                .Select(InstanceListViewModel.ConvertFromInstance)
                 .ToList();
             if (null == instances)
             {
@@ -137,7 +134,7 @@ namespace AwsRemoteDesktopManager
         public CredentialProfile GetAwsProfile(string profileName)
         {
             var credentialFile = new NetSDKCredentialsFile();
-            CredentialProfile profile = null;
+            CredentialProfile profile;
             if (!credentialFile.TryGetProfile(profileName, out profile))
             {
                 return null;
@@ -160,11 +157,5 @@ namespace AwsRemoteDesktopManager
             var key = File.ReadAllText(keyLocation);
             return result.GetDecryptedPassword(key);
         }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Process.Start("https://aws.amazon.com/jp/powershell/");
-        }
-
     }
 }

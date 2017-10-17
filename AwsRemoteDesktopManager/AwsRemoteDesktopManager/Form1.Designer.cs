@@ -35,9 +35,6 @@
             this.btnLaunchRsc = new System.Windows.Forms.Button();
             this.txtPrivateIpAddress = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.txtHowto = new System.Windows.Forms.TextBox();
-            this.lblHowto = new System.Windows.Forms.Label();
-            this.lnkHowto = new System.Windows.Forms.LinkLabel();
             this.lblProfileName = new System.Windows.Forms.Label();
             this.lblAccessKey = new System.Windows.Forms.Label();
             this.lblRegion = new System.Windows.Forms.Label();
@@ -72,7 +69,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.btnLaunchRsc);
             this.splitContainer1.Panel2.Controls.Add(this.txtPrivateIpAddress);
             this.splitContainer1.Panel2.Controls.Add(this.txtPassword);
-            this.splitContainer1.Size = new System.Drawing.Size(477, 203);
+            this.splitContainer1.Size = new System.Drawing.Size(477, 276);
             this.splitContainer1.SplitterDistance = 232;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -83,7 +80,7 @@
             this.lstEc2Instances.ItemHeight = 12;
             this.lstEc2Instances.Location = new System.Drawing.Point(0, 0);
             this.lstEc2Instances.Name = "lstEc2Instances";
-            this.lstEc2Instances.Size = new System.Drawing.Size(232, 203);
+            this.lstEc2Instances.Size = new System.Drawing.Size(232, 276);
             this.lstEc2Instances.TabIndex = 0;
             this.lstEc2Instances.SelectedIndexChanged += new System.EventHandler(this.lstEc2Instances_SelectedIndexChanged);
             // 
@@ -135,41 +132,6 @@
             this.txtPassword.ReadOnly = true;
             this.txtPassword.Size = new System.Drawing.Size(163, 19);
             this.txtPassword.TabIndex = 0;
-            // 
-            // txtHowto
-            // 
-            this.txtHowto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtHowto.Location = new System.Drawing.Point(0, 351);
-            this.txtHowto.Multiline = true;
-            this.txtHowto.Name = "txtHowto";
-            this.txtHowto.ReadOnly = true;
-            this.txtHowto.Size = new System.Drawing.Size(477, 32);
-            this.txtHowto.TabIndex = 1;
-            this.txtHowto.Text = "Set-AWSCredentials –AccessKey {accessKey} –SecretKey {secretKey}\r\nSet-DefaultAWSR" +
-    "egion -Region ap-northeast-1";
-            // 
-            // lblHowto
-            // 
-            this.lblHowto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblHowto.AutoSize = true;
-            this.lblHowto.Location = new System.Drawing.Point(0, 336);
-            this.lblHowto.Name = "lblHowto";
-            this.lblHowto.Size = new System.Drawing.Size(197, 12);
-            this.lblHowto.TabIndex = 2;
-            this.lblHowto.Text = "Default Profile の初期化（PowerShell）";
-            // 
-            // lnkHowto
-            // 
-            this.lnkHowto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lnkHowto.AutoSize = true;
-            this.lnkHowto.Location = new System.Drawing.Point(0, 384);
-            this.lnkHowto.Name = "lnkHowto";
-            this.lnkHowto.Size = new System.Drawing.Size(191, 12);
-            this.lnkHowto.TabIndex = 3;
-            this.lnkHowto.TabStop = true;
-            this.lnkHowto.Text = "AWS Tools for Windows PowerShell ";
-            this.lnkHowto.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // lblProfileName
             // 
@@ -264,14 +226,11 @@
             this.Controls.Add(this.lstProfileList);
             this.Controls.Add(this.lblRegion);
             this.Controls.Add(this.lblAccessKey);
-            this.Controls.Add(this.lnkHowto);
             this.Controls.Add(this.txtRegion);
             this.Controls.Add(this.txtAccessKey);
             this.Controls.Add(this.txtProfileName);
             this.Controls.Add(this.lblProfileList);
             this.Controls.Add(this.lblProfileName);
-            this.Controls.Add(this.lblHowto);
-            this.Controls.Add(this.txtHowto);
             this.Controls.Add(this.splitContainer1);
             this.Name = "Form1";
             this.Text = " ";
@@ -295,9 +254,6 @@
         private System.Windows.Forms.Label lblPrivateIP;
         private System.Windows.Forms.TextBox txtPrivateIpAddress;
         private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.TextBox txtHowto;
-        private System.Windows.Forms.Label lblHowto;
-        private System.Windows.Forms.LinkLabel lnkHowto;
         private System.Windows.Forms.Label lblProfileName;
         private System.Windows.Forms.Label lblAccessKey;
         private System.Windows.Forms.Label lblRegion;
