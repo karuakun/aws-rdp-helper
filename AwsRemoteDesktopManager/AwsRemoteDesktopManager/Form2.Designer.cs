@@ -123,6 +123,7 @@
             // 
             // lstAwsRegion
             // 
+            this.lstAwsRegion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.lstAwsRegion.FormattingEnabled = true;
             this.lstAwsRegion.Location = new System.Drawing.Point(79, 31);
             this.lstAwsRegion.Name = "lstAwsRegion";
