@@ -88,10 +88,10 @@ namespace AwsRemoteDesktopManager
                 ?.SelectMany(r => r.Instances);
         }
 
-        private class InstanceListViewModel
+        public class InstanceListViewModel
         {
-            private Instance Instance { get; set; }
-            private string Display { get; set; }
+            public Instance Instance { get; set; }
+            public string Display { get; set; }
 
             public static InstanceListViewModel ConvertFromInstance(Instance instance)
             {
