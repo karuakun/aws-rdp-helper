@@ -42,20 +42,20 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(376, 116);
+            this.button1.Location = new System.Drawing.Point(307, 116);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(63, 25);
-            this.button1.TabIndex = 0;
+            this.button1.TabIndex = 5;
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(307, 116);
+            this.button2.Location = new System.Drawing.Point(376, 116);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(63, 25);
-            this.button2.TabIndex = 0;
+            this.button2.TabIndex = 6;
             this.button2.Text = "Cansel";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -85,14 +85,14 @@
             this.txtAccessKey.Location = new System.Drawing.Point(79, 53);
             this.txtAccessKey.Name = "txtAccessKey";
             this.txtAccessKey.Size = new System.Drawing.Size(360, 19);
-            this.txtAccessKey.TabIndex = 4;
+            this.txtAccessKey.TabIndex = 3;
             // 
             // txtProfileName
             // 
             this.txtProfileName.Location = new System.Drawing.Point(79, 10);
             this.txtProfileName.Name = "txtProfileName";
             this.txtProfileName.Size = new System.Drawing.Size(168, 19);
-            this.txtProfileName.TabIndex = 5;
+            this.txtProfileName.TabIndex = 1;
             // 
             // lblProfileName
             // 
@@ -127,7 +127,7 @@
             this.lstAwsRegion.Location = new System.Drawing.Point(79, 31);
             this.lstAwsRegion.Name = "lstAwsRegion";
             this.lstAwsRegion.Size = new System.Drawing.Size(168, 20);
-            this.lstAwsRegion.TabIndex = 9;
+            this.lstAwsRegion.TabIndex = 2;
             // 
             // Form2
             // 
